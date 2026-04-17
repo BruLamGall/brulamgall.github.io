@@ -1,0 +1,69 @@
+.about-me h1 {
+  grid-column: 1 / span 4;
+}
+
+.about-me h2 {
+  align-self: center;
+}
+
+.about-me .text {
+  grid-column: 1 / span 2;
+}
+
+.about-me .medals {
+  grid-column: 3 / span 2;
+  display: grid;
+  grid-template-columns: calc(50% - 1.5rem) calc(50% - 1.5rem);
+  grid-template-rows: calc(50% - 1.5rem) calc(50% - 1.5rem);
+  gap: 3rem;
+}
+
+.about-me .medals > * {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.resume-download {
+  display: inline-block;
+  padding: 16px 48px;
+  border: 1px solid var(--accent_color);
+  background-color: transparent;
+  color: var(--accent_color);
+  text-decoration: none;
+  border-radius: 28px;
+  margin-top: 2em;
+  transition: 0.3s;
+}
+
+.resume-download:hover {
+  background-color: var(--accent_color);
+  color: var(--bg_color);
+}
+
+.technologies-logos {
+  grid-column: 2 / span 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.technologies-logos i {
+  display: flex;
+  margin: 2rem 2rem;
+  font-size: 4em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.technologies-logos i:hover {
+  margin: 1.5rem;
+  font-size: 5em;
+  transition: 0.3s;
+}

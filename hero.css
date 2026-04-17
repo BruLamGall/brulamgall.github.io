@@ -1,0 +1,71 @@
+.hero {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--bg_color);
+  z-index: 1000;
+  transition: left 0.5s ease-in-out;
+}
+
+.hero * {
+  color: var(--text_color);
+}
+
+.hero .profile-picture {
+  width: 16em;
+  height: 16em;
+  margin-bottom: 2em;
+}
+
+.hero .profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-family: "Meow Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 8em;
+  transition: 0.5s;
+}
+
+.hero h2 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+  margin: 3em 0 1em 0;
+  transition: 0.5s;
+}
+
+.hero div.view-more {
+  display: inline-block;
+  padding: 16px 48px;
+  border: 1px solid var(--accent_color);
+  background-color: transparent;
+  color: var(--accent_color);
+  text-decoration: none;
+  border-radius: 28px;
+  margin-top: 2em;
+  transition: 0.3s;
+}
+
+.hero div.view-more:hover {
+  background-color: var(--accent_color);
+  color: var(--bg_color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.hero.go-left {
+  left: -100%;
+  transition: 0.5s ease-in-out;
+}
