@@ -1,0 +1,67 @@
+.experience {
+  background-color: var(--blue2);
+}
+
+.experience h1 {
+  grid-column: 1 / span 4;
+}
+
+.experience .slider {
+  grid-column: 4;
+  position: relative;
+  width: 6px;
+  height: 512px;
+  background-color: var(--blue1);
+  margin-top: 20px;
+  cursor: grab;
+}
+
+.experience .slider.dragging,
+.experience .slider.dragging .mark {
+  cursor: grabbing;
+}
+
+.experience .slider .mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent_color);
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.experience .slider .mark.dragging {
+  cursor: grabbing;
+}
+
+.experience .experience-text {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 3;
+  background-color: var(--bg_color);
+  padding: 64px;
+  border-radius: 32px;
+}
+
+.experience .experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.experience .experience-skills .skill-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--accent_color);
+  padding: 10px 22px;
+  border-radius: 999px;
+  background-color: var(--bg_color);
+  font-weight: 200;
+  line-height: 1;
+}

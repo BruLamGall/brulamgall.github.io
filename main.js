@@ -105,6 +105,171 @@ window.addEventListener("DOMContentLoaded", initializeActiveDot);
 window.addEventListener("load", initializeActiveDot);
 window.addEventListener("hashchange", updateActiveDot);
 
+function parseExperienceMarkdown(markdownText) {
+  const lines = markdownText.split(/\r?\n/);
+  const entries = [];
+  let currentEntry = null;
+  let bodyLines = [];
+
+  function finalizeCurrentEntry() {
+    if (!currentEntry) return;
+
+    currentEntry.text = bodyLines.join(" ").replace(/\s+/g, " ").trim();
+    entries.push(currentEntry);
+  }
+
+  lines.forEach((line) => {
+    const trimmedLine = line.trim();
+
+    if (trimmedLine.startsWith("# ")) {
+      finalizeCurrentEntry();
+      currentEntry = {
+        title: trimmedLine.slice(2).trim(),
+        place: "",
+        text: "",
+        skills: [],
+      };
+      bodyLines = [];
+      return;
+    }
+
+    if (!currentEntry || !trimmedLine) return;
+
+    if (trimmedLine.startsWith("## ")) {
+      currentEntry.place = trimmedLine.slice(3).trim();
+      return;
+    }
+
+    if (trimmedLine.startsWith("### ")) {
+      currentEntry.skills = trimmedLine
+        .slice(4)
+        .split(",")
+        .map((skill) => skill.trim())
+        .filter(Boolean);
+      return;
+    }
+
+    bodyLines.push(trimmedLine);
+  });
+
+  finalizeCurrentEntry();
+  return entries;
+}
+
+async function loadExperienceEntries() {
+  try {
+    const response = await fetch("experience.md");
+    if (!response.ok) return [];
+    const markdownText = await response.text();
+    return parseExperienceMarkdown(markdownText);
+  } catch {
+    return [];
+  }
+}
+
+async function initializeExperienceSlider() {
+  const slider = document.querySelector(".experience .slider");
+  const mark = slider?.querySelector(".mark");
+  const experienceText = document.querySelector(".experience .experience-text");
+  const experienceTitle = experienceText?.querySelector("h2");
+  const experiencePlace = experienceText?.querySelector("i");
+  const experienceBody = experienceText?.querySelector("p");
+  const experienceSkills = experienceText?.querySelector(".experience-skills");
+
+  if (
+    !slider ||
+    !mark ||
+    !experienceText ||
+    !experienceTitle ||
+    !experiencePlace ||
+    !experienceBody ||
+    !experienceSkills
+  )
+    return;
+
+  const experienceEntries = await loadExperienceEntries();
+  if (!experienceEntries.length) return;
+
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  const maxIndex = experienceEntries.length - 1;
+  let activeIndex = 0;
+  let isDragging = false;
+
+  function setExperienceContent(index) {
+    const entry = experienceEntries[index];
+
+    experienceTitle.textContent = entry.title;
+    experiencePlace.textContent = entry.place;
+    experienceBody.textContent = entry.text;
+    experienceSkills.innerHTML = "";
+
+    entry.skills.forEach((skill) => {
+      const skillPill = document.createElement("span");
+      skillPill.className = "skill-pill";
+      skillPill.textContent = skill;
+      experienceSkills.appendChild(skillPill);
+    });
+  }
+
+  function setMarkPosition(index) {
+    const rect = slider.getBoundingClientRect();
+    const y = maxIndex > 0 ? (rect.height * index) / maxIndex : 0;
+    mark.style.top = `${y}px`;
+  }
+
+  function setActiveExperience(index) {
+    activeIndex = clamp(Math.round(index), 0, maxIndex);
+    setExperienceContent(activeIndex);
+    setMarkPosition(activeIndex);
+  }
+
+  function indexFromClientY(clientY) {
+    const rect = slider.getBoundingClientRect();
+    const y = clamp(clientY - rect.top, 0, rect.height);
+
+    if (rect.height === 0 || maxIndex === 0) {
+      return 0;
+    }
+
+    return Math.round((y / rect.height) * maxIndex);
+  }
+
+  function startDragging(event) {
+    event.preventDefault();
+    isDragging = true;
+    slider.classList.add("dragging");
+    slider.setPointerCapture(event.pointerId);
+    setActiveExperience(indexFromClientY(event.clientY));
+  }
+
+  function handlePointerMove(event) {
+    if (!isDragging || !slider.hasPointerCapture(event.pointerId)) return;
+    setActiveExperience(indexFromClientY(event.clientY));
+  }
+
+  function stopDragging(event) {
+    if (slider.hasPointerCapture(event.pointerId)) {
+      slider.releasePointerCapture(event.pointerId);
+    }
+    isDragging = false;
+    slider.classList.remove("dragging");
+    mark.classList.remove("dragging");
+  }
+
+  slider.addEventListener("pointerdown", startDragging);
+  slider.addEventListener("pointermove", handlePointerMove);
+  slider.addEventListener("pointerup", stopDragging);
+  slider.addEventListener("pointercancel", stopDragging);
+
+  window.addEventListener("resize", () => {
+    setMarkPosition(activeIndex);
+  });
+
+  setActiveExperience(0);
+}
+
+window.addEventListener("DOMContentLoaded", initializeExperienceSlider);
+
 async function updateGitHubContributions() {
   const contributionElement = document.getElementById("github-contributions");
   if (!contributionElement) return;

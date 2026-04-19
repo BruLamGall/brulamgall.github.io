@@ -6,7 +6,7 @@
   align-self: center;
 }
 
-.about-me .text {
+.about-me .aboutme-text {
   grid-column: 1 / span 2;
 }
 
