@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="about-me.css" />
     <link rel="stylesheet" href="experience.css" />
+    <link rel="stylesheet" href="projects.css" />
+    <link rel="stylesheet" href="contact.css" />
     <script src="main.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,7 +37,7 @@
         <img src="profile.jpeg" alt="Profile Picture" />
       </div>
       <h1>Bru Lamarca</h1>
-      <h2>ML Engineer</h2>
+      <h2>Software AI/ML Engineer</h2>
       <div class="button view-more" id="unblockscroll">View More</div>
     </div>
     <div class="navbar">
@@ -80,7 +82,7 @@
           <p>
             I have extense experience in Python, with frameworks like TensorFlow
             and PyTorch. I'm currently learning C++ to expand my skill set and
-            be able to work on a wider range of projects. I also want to lean
+            be able to work on a wider range of projects. I also want to learn
             JavaScript and discover new things about AI, especially in the
             context of neural networks.
           </p>
@@ -120,6 +122,14 @@
             rel="noreferrer"
           >
             <i class="devicon-python-plain"></i>
+          </a>
+          <a
+            class="numpy"
+            href="https://numpy.org"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i class="devicon-numpy-plain"></i>
           </a>
           <a
             class="pytorch"
@@ -185,14 +195,14 @@
           >
             <i class="devicon-css3-plain"></i>
           </a>
-          <a
+          <!-- <a
             class="javascript"
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             target="_blank"
             rel="noreferrer"
           >
             <i class="devicon-javascript-plain"></i>
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="section experience" id="experience">
@@ -213,11 +223,80 @@
       </div>
       <div class="section projects" id="projects">
         <h1>Projects</h1>
+        <div class="slider">
+          <div class="mark"></div>
+        </div>
+        <div class="projects-text">
+          <h2>MNIST Neural Network</h2>
+          <i>Personal Project, 2025</i>
+          <p>
+            When I was entering the world of AI, I wanted to dig deep into it:
+            how did it work, what algorithms does it use, etc. So I searched,
+            learnt and ultimately made an MNIST model using just numpy, to
+            really understand what was going on under the hood of the model.
+            Most of the work is inspired in 3Blue1Brown and Samson Zhang.
+          </p>
+          <div class="projects-technologies" aria-label="Technologies"></div>
+        </div>
       </div>
       <div class="section contact" id="contact">
         <h1>Contact</h1>
+        <div class="mail-form">
+          <form
+            action="mailto:bru.lamarca78@gmail.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+        <div class="other-links">
+          <h2>Connect with me</h2>
+          <div class="connect-icons">
+            <a
+              href="https://github.com/bru-lamarca"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-github-plain"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/bru-lamarca"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a href="mailto:bru.lamarca78@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+          <div class="horizontal-line"></div>
+          <p>Location: Barcelona, Spain</p>
+          <p>Status: Open to Software Engineer (AI/ML) roles Full-time</p>
+        </div>
       </div>
     </div>
-    <div class="bigbox"></div>
+    <div class="footer">
+      <div class="footer1">
+        <h2>Bru Lamarca</h2>
+        <p>Software Engineer (AI/ML)</p>
+      </div>
+      <div class="footer2">
+        <div class="footer-links">
+          <a href="#about-me">About me</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p>&copy; 2024 Bru Lamarca. All rights reserved.</p>
+      </div>
+    </div>
   </body>
 </html>

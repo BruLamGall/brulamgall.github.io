@@ -1,22 +1,19 @@
-.experience {
-  background-color: var(--blue2);
-}
-
-.experience h1 {
+.projects h1 {
   grid-column: 1 / span 4;
 }
 
-.experience .slider {
-  grid-column: 4;
+.projects .slider {
+  grid-column: 1;
+  justify-self: end;
   position: relative;
   width: 3px;
   height: 512px;
-  background-color: var(--bg_color);
+  background-color: var(--blue1);
   margin-top: 20px;
   cursor: grab;
 }
 
-.experience .slider-hitbox {
+.projects .slider-hitbox {
   position: absolute;
   top: -16px;
   bottom: -16px;
@@ -26,13 +23,13 @@
   cursor: grab;
 }
 
-.experience .slider-stops {
+.projects .slider-stops {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.experience .slider-stop {
+.projects .slider-stop {
   position: absolute;
   left: 50%;
   width: 12px;
@@ -41,12 +38,12 @@
   transform: translate(-50%, -50%);
 }
 
-.experience .slider.dragging,
-.experience .slider.dragging .mark {
+.projects .slider.dragging,
+.projects .slider.dragging .mark {
   cursor: grabbing;
 }
 
-.experience .slider .mark {
+.projects .slider .mark {
   z-index: 10;
   position: absolute;
   top: 0;
@@ -61,33 +58,33 @@
   user-select: none;
 }
 
-.experience .slider .mark.dragging {
+.projects .slider .mark.dragging {
   cursor: grabbing;
 }
 
-.experience .experience-text {
+.projects .projects-text {
   display: flex;
   flex-direction: column;
-  grid-column: 1 / span 3;
-  background-color: var(--bg_color);
+  grid-column: 2 / span 3;
+  background-color: var(--blue2);
   padding: 64px;
   border-radius: 32px;
 }
 
-.experience .experience-skills {
+.projects .projects-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   margin-top: auto;
 }
 
-.experience .experience-skills .skill-pill {
+.projects .projects-technologies .technology-pill {
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--accent_color);
   padding: 10px 22px;
   border-radius: 999px;
-  background-color: var(--bg_color);
+  background-color: var(--blue2);
   font-weight: 200;
   line-height: 1;
 }
