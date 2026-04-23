@@ -48,6 +48,8 @@ span.accent {
 }
 
 h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
   margin-bottom: 1rem;
   font-weight: 200;
   font-size: 4em;
