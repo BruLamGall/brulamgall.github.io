@@ -8,7 +8,7 @@
   justify-content: center;
   height: 100vh;
   min-height: 100dvh;
-  background-color: var(--bg_color);
+  background-color: var(--primary_color);
   z-index: 1000;
   transition: left 0.5s ease-in-out;
 }
@@ -62,7 +62,7 @@
 
 .hero div.view-more:hover {
   background-color: var(--accent_color);
-  color: var(--bg_color);
+  color: var(--primary_color);
   transition: 0.3s;
   cursor: pointer;
 }
