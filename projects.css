@@ -8,7 +8,7 @@
   position: relative;
   width: 3px;
   height: 512px;
-  background-color: var(--blue1);
+  background-color: var(--secondary_color_intermediate);
   margin-top: 20px;
   cursor: grab;
 }
@@ -66,7 +66,7 @@
   display: flex;
   flex-direction: column;
   grid-column: 2 / span 3;
-  background-color: var(--blue2);
+  background-color: var(--secondary_color);
   padding: 64px;
   border-radius: 32px;
 }
@@ -84,7 +84,7 @@
   border: 1px solid var(--accent_color);
   padding: 10px 22px;
   border-radius: 999px;
-  background-color: var(--blue2);
+  background-color: var(--secondary_color);
   font-weight: 200;
   line-height: 1;
 }
