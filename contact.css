@@ -1,5 +1,5 @@
 .contact {
-  background-color: var(--blue2);
+  background-color: var(--secondary_color);
 }
 
 .contact h1 {
@@ -44,7 +44,7 @@
 
 .contact button:hover {
   background-color: var(--accent_color);
-  color: var(--bg_color);
+  color: var(--primary_color);
 }
 
 .contact textarea {
