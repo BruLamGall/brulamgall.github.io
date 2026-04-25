@@ -21,7 +21,7 @@
 .about-me .medals > * {
   width: 100%;
   height: 100%;
-  background-color: var(--blue1);
+  background-color: var(--secondary_color);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
 
 .resume-download:hover {
   background-color: var(--accent_color);
-  color: var(--bg_color);
+  color: var(--primary_color);
 }
 
 .technologies-logos {
