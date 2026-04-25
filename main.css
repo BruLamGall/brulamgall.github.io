@@ -1,9 +1,10 @@
 :root {
-  --bg_color: #141414;
+  --primary_color: #141414;
+  --secondary_color: #080836;
   --accent_color: #906d11;
+  --primary_color_intermediate: #2f2f2f;
+  --secondary_color_intermediate: #20206c;
   --text_color: #ffffff;
-  --blue1: rgb(8, 8, 54);
-  --blue2: rgb(8, 8, 54);
   --anchor_offset: 80px;
 }
 
@@ -23,7 +24,7 @@ html {
 }
 
 body {
-  background-color: var(--bg_color);
+  background-color: var(--primary_color);
   color: var(--text_color);
   font-family: "Outfit", sans-serif;
   font-weight: 100;
